@@ -11,14 +11,68 @@
 		8E72EA1F2A5837AD009DAC39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA1E2A5837AD009DAC39 /* ContentView.swift */; };
 		8E72EA212A5837B1009DAC39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E72EA202A5837B1009DAC39 /* Assets.xcassets */; };
 		8E72EA242A5837B1009DAC39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E72EA232A5837B1009DAC39 /* Preview Assets.xcassets */; };
+		8E72EA2B2A5837FD009DAC39 /* CustomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA2A2A5837FD009DAC39 /* CustomFilter.swift */; };
+		8E72EA2E2A583877009DAC39 /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA2D2A583877009DAC39 /* CameraError.swift */; };
+		8E72EA302A58390C009DAC39 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA2F2A58390B009DAC39 /* CameraManager.swift */; };
+		8E72EA322A5839D3009DAC39 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA312A5839D3009DAC39 /* FrameManager.swift */; };
+		8E72EA352A583A1E009DAC39 /* CGImagExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA342A583A1E009DAC39 /* CGImagExtension.swift */; };
+		8E72EA382A583A4F009DAC39 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA372A583A4F009DAC39 /* ContentViewModel.swift */; };
+		8E72EA3C2A583B16009DAC39 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA3B2A583B16009DAC39 /* ControlView.swift */; };
+		8E72EA3E2A583B3F009DAC39 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA3D2A583B3F009DAC39 /* ErrorView.swift */; };
+		8E72EA402A583B59009DAC39 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA3F2A583B59009DAC39 /* FrameView.swift */; };
+		8E72EA422A583B79009DAC39 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA412A583B79009DAC39 /* ToggleButton.swift */; };
+		8E72EA442A583CF3009DAC39 /* CustomFilterKernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8E72EA432A583CF3009DAC39 /* CustomFilterKernel.ci.metal */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		8E726F6F2A5840E200CD2C36 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.metal";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/${INPUT_FILE_BASE}.air",
+			);
+			runOncePerArchitecture = 0;
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metal -c -fcikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n\n";
+		};
+		8E726F702A58412100CD2C36 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.air";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
+			);
+			runOncePerArchitecture = 0;
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
+		8E54FA942A5BFABB003C92A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8E72EA192A5837AD009DAC39 /* CameraFilters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraFilters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E72EA1C2A5837AD009DAC39 /* CameraFiltersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFiltersApp.swift; sourceTree = "<group>"; };
 		8E72EA1E2A5837AD009DAC39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E72EA202A5837B1009DAC39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E72EA232A5837B1009DAC39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E72EA2A2A5837FD009DAC39 /* CustomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilter.swift; sourceTree = "<group>"; };
+		8E72EA2D2A583877009DAC39 /* CameraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraError.swift; sourceTree = "<group>"; };
+		8E72EA2F2A58390B009DAC39 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		8E72EA312A5839D3009DAC39 /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
+		8E72EA342A583A1E009DAC39 /* CGImagExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagExtension.swift; sourceTree = "<group>"; };
+		8E72EA372A583A4F009DAC39 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		8E72EA3B2A583B16009DAC39 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		8E72EA3D2A583B3F009DAC39 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		8E72EA3F2A583B59009DAC39 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		8E72EA412A583B79009DAC39 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		8E72EA432A583CF3009DAC39 /* CustomFilterKernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = CustomFilterKernel.ci.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +105,13 @@
 		8E72EA1B2A5837AD009DAC39 /* CameraFilters */ = {
 			isa = PBXGroup;
 			children = (
+				8E54FA942A5BFABB003C92A7 /* Info.plist */,
+				8E72EA2C2A58383B009DAC39 /* CustomFilter */,
+				8E72EA3A2A583B03009DAC39 /* Views */,
+				8E72EA392A583A6E009DAC39 /* ViewModels */,
+				8E72EA362A583A32009DAC39 /* Extensions */,
+				8E72EA332A5839EB009DAC39 /* Camera */,
 				8E72EA1C2A5837AD009DAC39 /* CameraFiltersApp.swift */,
-				8E72EA1E2A5837AD009DAC39 /* ContentView.swift */,
 				8E72EA202A5837B1009DAC39 /* Assets.xcassets */,
 				8E72EA222A5837B1009DAC39 /* Preview Content */,
 			);
@@ -67,6 +126,53 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8E72EA2C2A58383B009DAC39 /* CustomFilter */ = {
+			isa = PBXGroup;
+			children = (
+				8E72EA2A2A5837FD009DAC39 /* CustomFilter.swift */,
+				8E72EA432A583CF3009DAC39 /* CustomFilterKernel.ci.metal */,
+			);
+			path = CustomFilter;
+			sourceTree = "<group>";
+		};
+		8E72EA332A5839EB009DAC39 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				8E72EA312A5839D3009DAC39 /* FrameManager.swift */,
+				8E72EA2D2A583877009DAC39 /* CameraError.swift */,
+				8E72EA2F2A58390B009DAC39 /* CameraManager.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		8E72EA362A583A32009DAC39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E72EA342A583A1E009DAC39 /* CGImagExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8E72EA392A583A6E009DAC39 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8E72EA372A583A4F009DAC39 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8E72EA3A2A583B03009DAC39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E72EA1E2A5837AD009DAC39 /* ContentView.swift */,
+				8E72EA3B2A583B16009DAC39 /* ControlView.swift */,
+				8E72EA3D2A583B3F009DAC39 /* ErrorView.swift */,
+				8E72EA3F2A583B59009DAC39 /* FrameView.swift */,
+				8E72EA412A583B79009DAC39 /* ToggleButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,6 +185,8 @@
 				8E72EA172A5837AD009DAC39 /* Resources */,
 			);
 			buildRules = (
+				8E726F702A58412100CD2C36 /* PBXBuildRule */,
+				8E726F6F2A5840E200CD2C36 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -137,8 +245,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E72EA382A583A4F009DAC39 /* ContentViewModel.swift in Sources */,
 				8E72EA1F2A5837AD009DAC39 /* ContentView.swift in Sources */,
+				8E72EA322A5839D3009DAC39 /* FrameManager.swift in Sources */,
+				8E72EA2B2A5837FD009DAC39 /* CustomFilter.swift in Sources */,
 				8E72EA1D2A5837AD009DAC39 /* CameraFiltersApp.swift in Sources */,
+				8E72EA3E2A583B3F009DAC39 /* ErrorView.swift in Sources */,
+				8E72EA352A583A1E009DAC39 /* CGImagExtension.swift in Sources */,
+				8E72EA422A583B79009DAC39 /* ToggleButton.swift in Sources */,
+				8E72EA2E2A583877009DAC39 /* CameraError.swift in Sources */,
+				8E72EA402A583B59009DAC39 /* FrameView.swift in Sources */,
+				8E72EA3C2A583B16009DAC39 /* ControlView.swift in Sources */,
+				8E72EA302A58390C009DAC39 /* CameraManager.swift in Sources */,
+				8E72EA442A583CF3009DAC39 /* CustomFilterKernel.ci.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -270,11 +389,15 @@
 				DEVELOPMENT_TEAM = N2LF8DTSP7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CameraFilters/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need camera to use filters";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +405,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kinzerskiy.CameraFilters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -299,11 +425,15 @@
 				DEVELOPMENT_TEAM = N2LF8DTSP7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CameraFilters/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app need camera to use filters";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +441,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kinzerskiy.CameraFilters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
